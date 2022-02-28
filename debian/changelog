@@ -1,0 +1,1080 @@
+nvidia-settings (510.54.01-0ubuntu1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 28 Feb 2022 23:19:37 +0100
+
+nvidia-settings (510.47.03-0ubuntu1) jammy; urgency=medium
+
+  * New upstream release (LP: #1960766).
+  * debian/rules.defs:
+    - Remove final / from the URL
+  * debian/patches/series:
+    - Drop 07_remove_features_for_legacy.patch.
+  * debian/patches/08_add_prime_support.patch:
+    - Rebase on 510
+  * debian/patches/17_do_not_read_config_on_power_saving_mode.patch:
+    - Refresh patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Feb 2022 16:51:41 +0100
+
+nvidia-settings (470.57.01-0ubuntu4) jammy; urgency=medium
+
+  [ Jeremy Szu ]
+  * debian/patches/18_remove_power-saving_if_on-demand.patch,
+    debian/patches/19_lp1957094-adjust-on-demand-mode-description.patch:
+     - Disable the item of power saving mode if on-demand is supported
+       (LP: #1957094).
+     - Leave the item there because the user might issue 'prime-select
+       intel' manually. Thus, leave it there could prevent selection
+       confuse.
+     - Explain the on-demand mode if driver < 450.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 03 Feb 2022 16:28:33 +0100
+
+nvidia-settings (470.57.01-0ubuntu3) impish; urgency=medium
+
+  * control: Enable build of nvidia-settings package on riscv64.
+    (LP: #1943030)
+
+ -- Alexandre Ghiti <alexandre.ghiti@canonical.com>  Thu, 16 Sep 2021 11:11:52 -0700
+
+nvidia-settings (470.57.01-0ubuntu2) impish; urgency=medium
+
+  * debian/patches/17_do_not_read_config_on_power_saving_mode.patch:
+    - Do not read config on Power Saving mode. (LP: #1943160).
+
+ -- Shengyao Xue <shengyao.xue@canonical.com>  Fri, 10 Sep 2021 00:42:38 +0800
+
+nvidia-settings (470.57.01-0ubuntu1) impish; urgency=medium
+
+  * New upstream release (LP: #1933980).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 12 Jul 2021 16:13:23 +0200
+
+nvidia-settings (465.31-0ubuntu1) impish; urgency=medium
+
+  * New upstream release.
+  * debian/patches/12_nostrip.patch,
+    debian/patches/14_nvidia-settings.desktop.patch:
+    - Refresh the patches.
+  * debian/compat, debian/control:
+    - Depend on debhelper 10 and update standards.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Jun 2021 13:08:56 +0200
+
+nvidia-settings (460.73.01-0ubuntu2) impish; urgency=medium
+
+  [ Thomas Ward ]
+  * debian/patches/include-Xlib.patch: (LP: #1922583)
+    - NVCtrlLib.h uses macros from X11/Xlib.h. Include it.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 13 May 2021 12:04:49 +0200
+
+nvidia-settings (460.73.01-0ubuntu1) impish; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 05 May 2021 15:26:22 +0200
+
+nvidia-settings (460.56-0ubuntu1) hirsute; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 Mar 2021 18:24:29 +0100
+
+nvidia-settings (460.39-0ubuntu2) hirsute; urgency=medium
+
+  * debian/patches/08_add_prime_support.patch:
+    - Stop the timeout after the child is done.
+      Fixes e00eb1b3fbe5d04901fe25f2a0e7332659a82064
+      and 6a6445e659806d915dd486417ae2e8c3cc89b1ff
+      from https://errors.ubuntu.com.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 18 Mar 2021 11:50:23 +0100
+
+nvidia-settings (460.39-0ubuntu1) hirsute; urgency=medium
+
+  * New upstream release.
+  * debian/patches/link-order.diff,
+    debian/patches/12_nostrip.patch,
+    debian/patches/05_add_polkit_support.patch,
+    debian/patches/06_remove_local_prefix.patch,
+    debian/patches/07_remove_features_for_legacy.patch
+    debian/patches/10_legacy_vdpau.patch
+    debian/patches/11_link_as-needed.patch
+    debian/patches/13_libxnvctrl_so_0.patch
+    debian/patches/15_clean.patch:
+    - Refresh patches.
+  * debian/patches/series:
+    - Drop 16_gzip-n.patch.
+  * debian/patches/08_add_prime_support.patch:
+    - Refresh and add support for a progress dialog.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 03 Feb 2021 18:09:00 +0100
+
+nvidia-settings (440.82-0ubuntu1) groovy; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 01 Jun 2020 11:10:39 +0200
+
+nvidia-settings (440.64-0ubuntu1) focal; urgency=medium
+
+  * New upstream release.
+  * debian/rules, debian/rules.defs:
+    - Add initial support for downloading the original tarball.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 11 Mar 2020 14:52:57 +0100
+
+nvidia-settings (440.44-0ubuntu1) focal; urgency=medium
+
+  * New upstream release.
+  * debian/patches/08_add_prime_support.patch:
+    - Refresh and make on-demand mode optional.
+      This makes the same patch work on systems where
+      on-demand mode is not available yet.
+  * debian/patches/05_add_polkit_support.patch,
+    debian/patches/06_remove_local_prefix.patch,
+    debian/patches/07_remove_features_for_legacy.patch,
+    debian/patches/08_add_prime_support.patch,
+    debian/patches/10_legacy_vdpau.patch,
+    debian/patches/11_link_as-needed.patch,
+    debian/patches/12_nostrip.patch,
+    debian/patches/13_libxnvctrl_so_0.patch,
+    debian/patches/15_clean.patch,
+    debian/patches/16_gzip-n.patch,
+    debian/patches/link-order.diff:
+    - Refresh patches.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 Jan 2020 12:13:52 +0100
+
+nvidia-settings (435.21-0ubuntu2) eoan; urgency=medium
+
+  * debian/patches/08_add_prime_support.patch:
+    - Recover dropped changes from 430.40-0ubuntu2.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Sep 2019 12:11:24 +0200
+
+nvidia-settings (435.21-0ubuntu1) eoan; urgency=medium
+
+  * New upstream release:
+    - Fixed the "Image Settings" options in the "OpenGL Settings"
+      page of nvidia-settings for Quadro GPUs.  Previously, OpenGL
+      rendering on Quadro would behave as if the "High Quality"
+      option were selected regardless of the selection.  Now, the
+      setting will default to "High Quality" for Quadro but selecting
+      a lower option will affect rendering accordingly. (Other GPUs
+      are unchanged: the default remains "Quality", but other options
+      can be selected if desired.)
+    - Fixed display color range handling on pre-Turing GPUs, such
+      that when limited color range is selected through the display
+      controls page in nvidia-settings, output pixel values will be
+      correctly clamped to Consumer Technology Association (CTA)
+      range.
+  - debian/patches/08_add_prime_support.patch:
+    - Refresh patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 04 Sep 2019 11:30:19 +0200
+
+nvidia-settings (430.40-0ubuntu2) eoan; urgency=medium
+
+  * debian/patches/08_add_prime_support.patch:
+    - Recommend a system restart in the dialogs.
+      This matches the changes in the nvidia-prime package.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 21 Aug 2019 20:35:46 +0200
+
+nvidia-settings (430.40-0ubuntu1) eoan; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Aug 2019 10:13:49 +0200
+
+nvidia-settings (430.34-0ubuntu1) eoan; urgency=medium
+
+  * New upstream release.
+
+  [ Alberto Milone ]
+  * debian/patches/05_add_polkit_support.patch:
+    - Refresh patch.
+
+  [ Yuan-Chen Cheng ]
+  * debian/patches/08_add_prime_support.patch:
+    - Add on-demand mode. (LP: #1824282)
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 15 Jul 2019 18:04:09 +0200
+
+nvidia-settings (430.26-0ubuntu1) eoan; urgency=medium
+
+  * New upstream release.
+
+  [ Rico Tzschichholz ]
+  * Update 13_libxnvctrl_so_0.patch, and refresh the other patches.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 14 Jun 2019 13:01:49 +0200
+
+nvidia-settings (418.56-0ubuntu2) eoan; urgency=medium
+
+  * debian/patches/05_add_polkit_support.patch:
+    - Use pkexec and call the new binary provided by
+      screen-resolution-extra (LP: #1822937).
+  * debian/control:
+    - Depend on screen-resolution-extra (>= 0.18~).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 21 May 2019 15:20:46 +0200
+
+nvidia-settings (418.56-0ubuntu1) disco; urgency=medium
+
+  * New upstream release:
+    - Updated nvidia-settings to disable line wrapping when
+      outputting to a non-terminal in command-line mode.
+      From GitHub pull request:
+      https://github.com/NVIDIA/nvidia-settings/pull/37
+    - Updated the nvidia-settings control panel to more accurately
+      reflect the current availability of G-SYNC or G-SYNC
+      compatible display settings.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 26 Mar 2019 17:00:03 +0100
+
+nvidia-settings (418.43-0ubuntu1) disco; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 13 Mar 2019 13:01:17 +0100
+
+nvidia-settings (410.78-0ubuntu2) disco; urgency=medium
+
+  * debian/control:
+    - Add build dependencies on libegl1-mesa-dev | libegl-dev and on
+      libdbus-1-dev.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 27 Nov 2018 17:37:18 +0100
+
+nvidia-settings (410.78-0ubuntu1) disco; urgency=medium
+
+  * New upstream release.
+  * debian/patches/series:
+    - Drop 09_do_not_complain_if_nvidia_is_missing.patch
+      This is now included in the main prime patch.
+  * debian/patches/08_add_prime_support.patch:
+    - Rebase against 410.78 sources. This restores the
+      previous behaviour with hybrid graphics.
+  * debian/libxnvctrl0.symbols:
+    - Update symbols.
+  * debian/patches/13_libxnvctrl_so_0.patch,
+    debian/patches/15_clean.patch:
+    - Refresh patches.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 23 Nov 2018 17:09:45 +0100
+
+nvidia-settings (390.77-0ubuntu1) cosmic; urgency=medium
+
+  * New upstream release.
+  * 08_add_prime_support.patch:
+    - Recommend a simple log out (LP: #1778011).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 02 Aug 2018 16:30:52 +0200
+
+nvidia-settings (390.42-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release.
+
+  [ Alberto Milone ]
+  * debian/patches/08_add_prime_support.patch:
+    - Use pkexec to call prime-select (LP: #1757180).
+    - Recommend a computer restart, rather than
+      a simple log out (LP: #1704781).
+
+  [ Graham Inggs ]
+  * debian/patches/05_add_polkit_support.patch,
+    debian/patches/06_remove_local_prefix.patch,
+    debian/patches/07_remove_features_for_legacy.patch,
+    debian/patches/08_add_prime_support.patch,
+    debian/patches/10_legacy_vdpau.patch,
+    debian/patches/11_link_as-needed.patch,
+    debian/patches/12_nostrip.patch,
+    debian/patches/15_clean.patch:
+    - Refresh all patches for new upstream 390.42
+  * debian/patches/13_libxnvctrl_so_0.patch,
+    debian/patches/link-order.diff:
+    - Reorder libraries and object files to allow proper
+      dependency resolution.
+  * debian/control,
+    debian/libxnvctrl0.install,
+    debian/rules,
+    debian/source/format:
+    - Switch to debhelper 9.
+    - Switch to source format 3.0 (quilt).
+    - Depend on libgtk-3-0 | libgtk2.0-0, don't require both.
+    - Switch to debian/watch.
+    - Drop download-sources target with obsolete URL.
+    - Change libxnvctrl0 and libxnvctrl-dev Architecture
+      to any (LP: #1690669).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 22 Mar 2018 18:29:24 +0100
+
+nvidia-settings (384.69-0ubuntu1) artful; urgency=medium
+
+  * New upstream release (to match the 384 series in the archive).
+  * debian/patches/08_add_prime_support.patch:
+    - Refresh the patch for the 384 series.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 09 Oct 2017 18:28:54 +0200
+
+nvidia-settings (367.35-0ubuntu1) yakkety; urgency=medium
+
+  * debian/control:
+    - Build for arm64 and ppc64el, even though we don't provide the
+      driver for these architectures yet.
+  * debian/patches/12_nostrip.patch,
+    debian/patches/13_libxnvctrl_so_0.patch:
+    - Refresh patches.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 09 Aug 2016 11:10:31 +0200
+
+nvidia-settings (361.42-0ubuntu1) xenial; urgency=medium
+
+  * New upstream release:
+    - Limited the default concurrency level in nvidia-settings to 32,
+      to avoid hitting the maximum tasks limit on systems with many
+      CPUs.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 05 Apr 2016 11:42:18 +0200
+
+nvidia-settings (361.28-0ubuntu1) xenial; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 11 Feb 2016 11:50:07 +0100
+
+nvidia-settings (352.21-0ubuntu1) wily; urgency=medium
+
+  * debian/rules:
+    - Remove a character that was accidentally introduced in the
+      sources' link, which was causing the download-sources target
+      to fail.
+  * New upstream release:
+    - Fixed a bug that caused the Display Configuration page of the
+      nvidia-settings control panel to automatically generate layouts
+      with multiple displays occupying the same position when
+      enabling or disabling Base Mosaic.
+    - Updated nvidia-settings to allow the use of the standard
+      Display Configuration page when SLI Mosaic is enabled.
+    - Added reporting of ECC error counts to the nvidia-settings
+      control panel.
+    - Fixed a bug in nvidia-settings that caused the application to
+      crash when saving the EDID to a file.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 23 Jul 2015 12:57:28 +0200
+
+nvidia-settings (346.82-0ubuntu1) wily; urgency=medium
+
+  * New upstream release:
+    - Fixed a bug that caused the application to crash when saving
+      the EDID to a file.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 24 Jun 2015 17:19:13 +0200
+
+nvidia-settings (346.72-0ubuntu1) wily; urgency=medium
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 May 2015 16:36:18 +0200
+
+nvidia-settings (346.59-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release:
+    - Fixed a bug that could cause nvidia-settings to crash on exit.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 09 Apr 2015 10:47:10 +0200
+
+nvidia-settings (346.47-0ubuntu1) vivid; urgency=medium
+
+  [ Graham Inggs ]
+  * Enable building for armhf.
+  * New packages libxnvtrl0 and libxnvctrl-dev. (LP: #1327753)
+  * Sync all patches from 343.22-1 in Debian experimental.
+  * Merge debian/copyright from 343.22-1 in Debian experimental,
+    add Ubuntu contributors, update copyright years. (LP: #1429974)
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 18 Mar 2015 12:41:58 +0100
+
+nvidia-settings (346.35-0ubuntu1) vivid; urgency=low
+
+  * New upstream release:
+    - Updated nvidia-settings to take advantage of GTK+ 3, when
+      available. This is implemented by building the nvidia-settings
+      user interface into separate shared libraries (libnvidia-
+      gtk2.so, libnvidia-gtk3.so), and loading the correct one at
+      run-time.
+    - Added the nvidia-settings option --gtk-library to allow
+      specifying the path of the directory containing the user
+      interface library or the path and filename of the specific
+      library to use.
+    - Added support in nvidia-settings for a GTK+ 3 user interface on
+      x86 and x86_64.
+    - Added the nvidia-settings option --use-gtk2 to force the use of
+      the GTK+ 2 UI library.
+  * debian/control:
+    - Fix up build dependencies.
+  * debian/patches/10_legacy_vdpau.patch:
+   - Make it possible to build with VDPAU releases older than 0.9.
+  * debian/patches/04_nvidia-settings_natty_ftbs.patch:
+   - Drop the patch.
+  * debian/patches/07_remove_features_for_legacy.patch,
+    debian/patches/09_do_not_complain_if_nvidia_is_missing.patch:
+   - Refresh the patches.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 16 Jan 2015 18:21:44 +0100
+
+nvidia-settings (331.20-0ubuntu8) trusty; urgency=low
+
+  * debian/patches/05_add_polkit_support.patch,
+    debian/patches/08_add_prime_support.patch:
+    - Use python 3 instead of python 2.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 03 Feb 2014 16:00:12 +0100
+
+nvidia-settings (331.20-0ubuntu7) trusty; urgency=low
+
+  * Revert previous upload.
+  * debian/patches/08_add_prime_support.patch:
+    - Add a missing prototype for ctk_prime_create_help(), and
+      include ctkutils.h in ctkprime.c.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 13 Jan 2014 15:33:19 +0100
+
+nvidia-settings (331.20-0ubuntu6) trusty; urgency=low
+
+  * d/patches/08_...: Add missing preprocessor directives, resolving
+    FTBFS on 64-bit.
+
+ -- Daniel T Chen <crimsun@ubuntu.com>  Mon, 09 Dec 2013 11:16:16 -0500
+
+nvidia-settings (331.20-0ubuntu5) trusty; urgency=low
+
+  * debian/patches/series:
+    - Reorder patches
+  * debian/patches/08_add_prime_support.patch:
+    - Add support for PRIME switching. An additional
+      tab provides support for switching between GPUs.
+      This is only visible if nvidia-prime (>= 0.5) is
+      installed and reports that the system supports
+      hybrid graphics. No hard dependency on nvidia-prime
+      is therefore required.
+  * debian/patches/09_do_not_complain_if_nvidia_is_missing.patch:
+    - Disable the warning dialog since it suggests to run
+      nvidia-xconfig, which we don't need. This would also break
+      PRIME.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 27 Nov 2013 12:23:23 +0100
+
+nvidia-settings (331.20-0ubuntu4) trusty; urgency=low
+
+  * debian/preinst:
+    - Clean up any nvidia_settings_conf alternatives.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 22 Nov 2013 15:08:21 +0100
+
+nvidia-settings (331.20-0ubuntu3) trusty; urgency=low
+
+  * debian/dirs, debian/install,
+    debian/nvidia-settings-autostart.desktop,
+    debian/nvidia-settings.desktop:
+    - Install the icon and the desktop files.
+  * debian/rules:
+    - Do not compress .c and .mk files.
+  * debian/control.in, debian/postinst.in, debian/postrm.in,
+    debian/prerm.in, debian/rules:
+    - Drop alternatives, as we only have one nvidia-settings
+      for all the driver flavours.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 22 Nov 2013 09:35:14 +0100
+
+nvidia-settings (331.20-0ubuntu2) trusty; urgency=low
+
+  * debian/patches/07_remove_features_for_legacy.patch:
+    - Do not expose features that are not available in the legacy
+      drivers.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 20 Nov 2013 16:46:02 +0100
+
+nvidia-settings (331.20-0ubuntu1) trusty; urgency=low
+
+  * Unify the different flavours under this one.
+  * debian/control.in:
+    - Add ${misc:Depends}.
+    - Build depend on libvdpau-dev and depend on libvdpau1.
+    - Create transitional packages for 319, 319-updates, 313-updates,
+      310, 310-updates, 304, 304-updates, experimental-304, updates.
+    - Remove lpia.
+    - Drop dependency on python-gtk2.
+    - Conflict/replace/provide nvidia-settings-binary.
+  * debian/patches/series:
+    - Do not apply 01_allow_dark_themes.dpatch.
+  * debian/rules:
+    - Pass the destdir argument in uppercase to match the variable.
+    - Add download-sources target.
+    - Clean action in rules to target "clean" instead of "distclean".
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 19 Nov 2013 12:38:42 +0100
+
+nvidia-settings (304.88-0ubuntu0.1) quantal-security; urgency=low
+
+  * SECURITY UPDATE: ARGB Cursor Buffer Overflow in "NoScanout" Mode
+    - CVE-2013-0131
+
+  [ Alberto Milone ]
+  * New upstream release:
+    - Match the ABI in the 304.88 release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Apr 2013 17:09:45 +0200
+
+nvidia-settings (304.51-0ubuntu2) quantal; urgency=low
+
+  * debian/control.in:
+    - Conflict with/replace/provide other flavours
+      (LP: #1061659).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 12 Oct 2012 12:56:09 +0200
+
+nvidia-settings (304.51-0ubuntu1) quantal; urgency=low
+
+  * New upstream release:
+    - Fixed a bug that sometimes caused the display layout area
+      of the nvidia-settings control panel to be laid out
+      incorrectly.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Oct 2012 12:58:33 +0200
+
+nvidia-settings (304.43-0ubuntu2) quantal; urgency=low
+
+  * debian/patches/06_remove_local_prefix.patch:
+    - Fix FTBFS (LP: #1037483).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 11 Sep 2012 12:20:07 +0200
+
+nvidia-settings (304.43-0ubuntu1) quantal; urgency=low
+
+  * New upstream release (LP: #1037483):
+    - Updated nvidia-settings to use RandR per-CRTC gamma
+      control, when available. When controlling an X
+      server with support for RandR 1.2, nvidia-settings
+      will display the color correction widget as a tab
+      within each display device page, instead of a
+      per-X screen color correction page.
+    - Added the ability to select and move X screens in
+      the "X Server Display Configuration" page of
+      nvidia-settings via Ctrl-(Left)Click + Drag.
+    - Fixed a bug that prevented the display palette
+      from being updated immediately after an application
+      called XStoreColors.
+    - Fixed a bug that caused gnome-settings-daemon to
+      revert display configuration changes made by
+      nvidia-settings.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 28 Aug 2012 14:01:47 +0200
+
+nvidia-settings (302.17-0ubuntu3) quantal; urgency=low
+
+  * debian/control: Fixed a typo in the package description: changed 'of' to 'for'
+    (LP: #306178)
+
+ -- Donald Siuchninski <dsiuchninski@gmail.com>  Sun, 29 Jul 2012 22:19:32 -0500
+
+nvidia-settings (302.17-0ubuntu2) quantal; urgency=low
+
+  * Rename build to build-arch and make build depend on build-arch.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Mon, 02 Jul 2012 17:18:24 -0600
+
+nvidia-settings (302.17-0ubuntu1) quantal; urgency=low
+
+  * New upstream release.
+  * Refresh 04_nvidia-settings_natty_ftbs.patch.
+  * Drop 02_nvidia-settings-format-string.patch which
+    is now upstream.
+  * debian/rules:
+    - Make sure to install the new sources correctly.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 25 Jun 2012 16:31:12 +0200
+
+nvidia-settings (295.33-0ubuntu1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 30 Mar 2012 14:23:10 +0200
+
+nvidia-settings (295.20-0ubuntu1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sat, 18 Feb 2012 10:21:04 +0100
+
+nvidia-settings (285.05.09-0ubuntu1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Mon, 14 Nov 2011 17:05:48 +0100
+
+nvidia-settings (280.13-0ubuntu4) precise; urgency=low
+
+  * Ubuntu has a control.in so last change didn't work.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 17 Oct 2011 14:05:13 -0400
+
+nvidia-settings (280.13-0ubuntu3) precise; urgency=low
+
+  * Add python-gtk2 and pkg-config dependencies (LP: #721453)
+
+ -- Mackenzie Morgan <maco.m@ubuntu.com>  Mon, 17 Oct 2011 13:18:23 -0400
+
+nvidia-settings (280.13-0ubuntu2) oneiric; urgency=low
+
+  * Make sure that dh_auto_install calls make with the right arguments.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Aug 2011 14:19:18 +0200
+
+nvidia-settings (280.13-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release.
+  * Correct copyright assignment in debian/rules.
+  * Make it possible to generate files from templates.
+  * Install an alternative, so that users can switch between different
+    flavours.
+  * Switch to debhelper 7 and quilt.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 04 Aug 2011 17:43:17 +0200
+
+nvidia-settings (275.09.07-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release:
+    - Fixed a bug that caused nvidia-settings to crash while saving the
+      X configuration file on some Linux distributions.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 15 Jun 2011 16:52:24 +0200
+
+nvidia-settings (270.41.19-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 14 Jun 2011 19:20:08 +0200
+
+nvidia-settings (270.29-0ubuntu1) natty; urgency=low
+
+  * New upstream release.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 25 Feb 2011 15:18:56 +0100
+
+nvidia-settings (260.19.21-0ubuntu3) natty; urgency=low
+
+  * Drop patch debian/patches/06_layout_drop_down.patch: Causes regression
+    when used with unity.
+    (Closes LP: #692677, reopens #604525)
+
+ -- Bryce Harrington <bryce@ubuntu.com>  Mon, 03 Jan 2011 13:08:19 -0800
+
+nvidia-settings (260.19.21-0ubuntu2) natty; urgency=low
+
+  * Add debian/patches/06_layout_drop_down.patch: screen layout dialog box
+    replaced by a drop-down list, thanks to Bert Van Vreckem (LP: #604525).
+
+ -- Kees Cook <kees@ubuntu.com>  Mon, 06 Dec 2010 14:47:44 -0800
+
+nvidia-settings (260.19.21-0ubuntu1) natty; urgency=low
+
+  * New upstream release.
+  * Add debian/patches/04_nvidia-settings_natty_ftbs.patch.
+    Thanks to Robert Hooker for the patch.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 21 Nov 2010 13:02:24 +0100
+
+nvidia-settings (260.19.06-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - Update to the new release so that it matches the latest release
+      of nvidia-current.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Wed, 29 Sep 2010 11:46:29 +0200
+
+nvidia-settings (256.53-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - Update to the new release so that it matches the latest release
+      of nvidia-current.
+  * debian/control:
+    - Bump Standards-Version.
+    - Add Vcs-Git and Vcs-Browser.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 07 Sep 2010 12:19:37 +0200
+
+nvidia-settings (256.35-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - Fixed a bug that caused nvidia-settings to crash when rendering
+      its thermal gauge widget if the range of valid values for the
+      thermal sensor was empty.
+    - Improved Thermal Settings reporting in nvidia-settings to
+      accurately reflect hardware configurations with multiple thermal
+      sensors.
+  * debian/docs:
+    - Remove Makefile.inc.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 27 Jun 2010 18:59:46 +0200
+
+nvidia-settings (195.36.08-0ubuntu2) lucid; urgency=low
+
+  * debian/patches/03_do_not_exit_on_no_scanout.patch:
+    - Do not fail if the driver doesn't support the NV_CTRL_NO_SCANOUT
+      property (LP: #539196).
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Tue, 06 Apr 2010 19:50:01 +0200
+
+nvidia-settings (195.36.08-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Fixed an X server crash caused by starting nvidia-settings while
+      X was not on the active VT.
+    - Fixed an nvidia-settings bug that produced many "Bad argument"
+      warning messages when running nvidia-settings --query all.
+  * Drop patches 03_xf86vidmode-rampsize-check.patch and
+    04_include_xf86vmproto.patch as the problem is fixed
+    in the upstream code now.
+
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 05 Mar 2010 11:19:05 +0100
+
+nvidia-settings (190.53-0ubuntu1) lucid; urgency=low
+
+  * New upstream release (LP: #417410).
+  * debian/control:
+    - Add build dependency on cdbs.
+    - Remove build dependency on dpatch.
+    - Add lpia architecture.
+    - Depend on screen-resolution-extra >= 0.12.
+  * debian/patches/02_nvidia-settings-format-string.patch:
+    - Patch from Mandriva to pass formatted strings to gtk dialogs (thus
+      reducing gtk warnings).
+  * debian/patches/03_xf86vidmode-rampsize-check.patch:
+    - Fix FTBFS with recent versions of XF86VidMode.
+  * debian/patches/04_include_xf86vmproto.patch:
+   - Include xf86vmproto.h so as to get back XF86VidModeGetGammaRampSize().
+  * debian/patches/05_polkit.patch:
+    - Add support for PolicyKit so that nvidia-settings doesn't require
+      that users call it with sudo to edit xorg.conf (LP: #200868)
+      (requires screen-resolution-extra >= 0.12).
+  * debian/rules:
+    - Switch to CDBS.
+    - Do not provide a desktop file. The different nvidia packages will
+      deal with it.
+
+ -- Alberto Milone <alberto.milone@canonical.com>  Sun, 10 Jan 2010 12:12:42 +0100
+
+nvidia-settings (180.25-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #315667)
+  * debian/patches/02_add_missing_serverlayout.dpatch: drop patch
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Sat, 31 Jan 2009 17:21:51 +0100
+
+nvidia-settings (177.78-0ubuntu2.1) intrepid-proposed; urgency=low
+
+  * debian/rules: Add missing dpatch unpatching on clean.
+  * Add debian/patches/02_add_missing_serverlayout.dpatch:
+    - Prevent nvidia-settings from crashing when no ServerLayout section is
+      found in the xorg.conf (LP: #286424).
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Sat, 01 Nov 2008 13:12:40 +0100
+
+nvidia-settings (177.78-0ubuntu2) intrepid; urgency=low
+
+  * Restore ROOT=$(DESTDIR) in the Makefile 
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Mon, 13 Oct 2008 15:16:15 +0200
+
+nvidia-settings (177.78-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+    - Do not add RgbPath to the Files section of xorg.conf
+      (LP: #274866)
+  * debian/copyright:
+    - Restore detailed version of the license (cf. debian #494388)
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Wed, 08 Oct 2008 18:24:16 +0200
+
+nvidia-settings (173.14.09-1ubuntu3) intrepid; urgency=low
+
+  [ Alberto Milone (tseliot) ]
+  * Comment out gtk_widget_modify_fg and gtk_widget_modify_bg in 
+    src/gtk+-2.x/ctkglx.c 
+
+  [ Mario Limonciello ]
+  * Add dpatch patching support so that Alberto's previous patch is
+    not lost in newer upstream versions.
+
+ -- Alberto Milone (tseliot) <albertomilone@alice.it>  Thu, 28 Aug 2008 22:56:28 +0200
+
+nvidia-settings (173.14.09-1ubuntu2) intrepid; urgency=low
+
+  * debian/rules: force -fPIC in CFLAGS for xnvctrl library.
+
+ -- Stefan Potyra <sistpoty@ubuntu.com>  Sun, 10 Aug 2008 12:52:07 +0200
+
+nvidia-settings (173.14.09-1ubuntu1) intrepid; urgency=low
+
+  * Merge from unstable, remaining changes:
+    - debian/copyright: updated, add MIT license (cf. debian #494388).
+    - debian/rules, debian/nvidia-settings.desktop: install desktop file
+      (cf. debian #317993). Also add usr/share/applications to dirs.
+    - drop Recommends on nvidia-glx, instead the nvidia drivers will
+      recommend nvidia-settings.
+    - update build depends of xutils and xlibmesa-gl-dev.
+    - update debian/rules to clean also XF86Config-parser directory
+      (cf. debian: #494456).
+    Dropped:
+    - patch against src/gtk+-2.x/ctkwindow.c: solved upstream.
+    - separate package libxnvctrl-dev (caused a major diversion, not so 
+      much nicer to keep it).
+    - updating standards-version
+    - debhelper bump (it should build fine with v4).
+  * debian/control:
+    - add Conflicts against libxnvctrl-dev, which is dropped with this 
+      upload and used to contain the static library/header files that
+      are now found in nvidia-settings itself.
+
+ -- Stefan Potyra <sistpoty@ubuntu.com>  Sat, 09 Aug 2008 22:33:28 +0200
+
+nvidia-settings (173.14.09-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 24 Jun 2008 10:41:09 -0700
+
+nvidia-settings (169.07-1) unstable; urgency=low
+
+  * New upstream release
+  * reinclude nvctrl headers (closes: #434885)
+  * depend on nvidia-glx (169.07). there are legacy versions now too.
+
+ -- Randall Donald <rdonald@debian.org>  Sun, 23 Dec 2007 17:07:10 -0800
+
+nvidia-settings (1.0+20080304-0ubuntu3) intrepid; urgency=low
+
+  [ Alberto Milone (tseliot) ]
+  * Remove Recommends and Conflicts from nvidia-settings. Each NVIDIA driver
+    will Recommend nvidia-settings instead.
+
+  [ Mario Limonciello ]
+  * debian/control:
+    - Modify build depends from obsoleted packages xutils and xlibmesa-gl-dev
+    - Bump standards version.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 08 Jul 2008 13:13:05 -0500
+
+nvidia-settings (1.0+20080304-0ubuntu2) intrepid; urgency=low
+
+  * src/gtk+-2.x/ctkwindow.c:
+    - Set selection to default to first item when opening (LP: #198503)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 04 Jun 2008 22:21:40 -0500
+
+nvidia-settings (1.0+20080304-0ubuntu1) hardy; urgency=low
+
+  * New upstream version. (LP: #198484)
+    - Fixes errors writing out xorg.conf
+      (LP: #194528,195241,195302,197568,198215)
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 04 Mar 2008 13:50:58 -0600
+
+nvidia-settings (1.0+20071221-0ubuntu5) hardy; urgency=low
+
+  *  Add versioned nvidia-glx-legacy to Recommends and Conflicts
+
+ -- Emmet Hikory <persia@ubuntu.com>  Sat, 16 Feb 2008 10:38:08 +0900
+
+nvidia-settings (1.0+20071221-0ubuntu4) hardy; urgency=low
+
+  * debian/control: add versioned conflicts to older nvidia-glx and
+    nvidia-glx-new for the binary package nvidia-settings. The older
+    conflicted versions shipped the nvidia-settings application as
+    well.
+  * Add nvidia-glx-new as alternate recommends in debian/control.
+  * debian/control: (re)add versions to the recommends.
+  * debian/rules: don't create usr/lib for nvidia-settings (seems like
+    I initially added that wrongly when dropping nvidia-settings 
+    binary package).
+
+ -- Stefan Potyra <sistpoty@ubuntu.com>  Fri, 15 Feb 2008 22:30:12 +0100
+
+nvidia-settings (1.0+20071221-0ubuntu3) hardy; urgency=low
+
+  * Drop version from nvidia-glx recommends for virtual package support
+
+ -- Emmet Hikory <persia@ubuntu.com>  Sat, 16 Feb 2008 04:36:10 +0900
+
+nvidia-settings (1.0+20071221-0ubuntu2) hardy; urgency=low
+
+  * Enable nvidia-settings binary package again, since the binary
+    was dropped from nvidia-glx* in favor of this opensource version.
+  * Add nvidia-settings.desktop, set the category to System;Settings;.
+  * rules: clean src/XF86Config-parser.
+  * control: libxnvctrl-dev section libdevel -> contrib/libdevel.
+
+ -- Timo Aaltonen <tepsipakki@ubuntu.com>  Wed, 13 Feb 2008 16:52:16 +0200
+
+nvidia-settings (1.0+20071221-0ubuntu1) hardy; urgency=low
+
+  * New upstream version (aka 169.07).
+  * debian/control: Mangle maintainer/XSBC-Original-Maintainer according to
+    spec.
+  * debian/control: add libxnvctrl-dev package, which contains the headers
+    and the static library.
+  * move current debian/* to package specific places:
+    - debian/dirs -> removed (cannot handle non-existant package with
+      debhelper)
+    - debian/menu -> debian/nvidia-settings.menu
+    - debian/docs -> debian/nvidia-settings.doc, debian/libxnvctrl-dev.docs,
+      splitting off the relevant files.
+  * debian/rules: install libXNVCtrl.a to libxnvctrl-dev package.
+  * debian/rules: install the headers NVCtrl.h and NVCtrlLib.h to
+    the libxnvctrl-dev package (cf. LP bug #59945).
+    Also create necessary directories.
+  * bump debhelper recommends to version 5:
+    - debian/compat updated
+    - debian/control: tighten debhelper build-depends version.
+  * debian/README.ubuntu: new file, explaining the ubuntu changes.
+  * debian/examples -> debian/libxnvctrl.examples, because the examples
+    only apply to libXNVCtrl.a.
+  * debian/control: comment out nvidia-settings package:
+    The nvidia-settings binary is provided by linux-restricted-modules,
+    so there's no need to ship it from this package.
+  * debian/rules: force remove the directories from nvidia-settings in
+    clean rule.
+  * debian/copyright: updated, adjusted to list all other licensed files
+    as well.
+
+ -- Stefan Potyra <sistpoty@ubuntu.com>  Fri, 08 Feb 2008 23:38:35 +0100
+
+nvidia-settings (1.0+20070502-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 12 May 2007 14:34:59 -0700
+
+nvidia-settings (1.0+20060919-1) unstable; urgency=low
+
+  * New upstream release (20060919)
+  * include /usr/lib/libXNVCtrl.a (closes: #375191)
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  7 Oct 2006 14:31:44 -0700
+
+nvidia-settings (1.0+20060516-1) unstable; urgency=low
+
+  * add build depend on m4. (closes: #369661)
+  * New upstream (nvidia-settings-1.0.tar.gz 05/16/06 )
+
+ -- Randall Donald <rdonald@debian.org>  Fri,  2 Jun 2006 23:21:01 -0700
+
+nvidia-settings (1.0+20060404-1) unstable; urgency=low
+
+  * New upstream (nvidia-settings-1.0.tar.gz  04/04/06)
+  * fix for xorg7 (closes: #366243)
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 17 May 2006 19:21:28 -0700
+
+nvidia-settings (1.0+20051122-1) unstable; urgency=low
+
+  * New upstream. (nvidia-settings-1.0-11-22-05.tar.gz) 
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 28 Dec 2005 14:10:15 -0800
+
+nvidia-settings (1.0+20050729-1) unstable; urgency=low
+
+  * New upstream.
+  * update standards version: 3.6.2
+  * correct fsf address
+
+ -- Randall Donald <rdonald@debian.org>  Mon,  7 Nov 2005 10:54:24 -0800
+
+nvidia-settings (1.0+20050525-2.2) unstable; urgency=low
+
+  * Non-maintainer upload
+  * corrected X11R6_LIB_DIR for x86_64 (closes: #321295, #327337)
+
+ -- tony mancill <tmancill@debian.org>  Fri, 30 Sep 2005 08:44:56 -0700
+
+nvidia-settings (1.0+20050525-2.1) unstable; urgency=low
+
+  * Non-maintainer upload
+  * adds build-depends on libxv-dev (closes: #324594)
+
+ -- tony mancill <tmancill@debian.org>  Sun, 11 Sep 2005 10:49:58 -0700
+
+nvidia-settings (1.0+20050525-2) unstable; urgency=low
+
+  * Change build-depends from xlibs-static-dev to libxxf86vm-dev 
+    (closes: #318814)
+  
+ -- Randall Donald <rdonald@debian.org>  Tue, 19 Jul 2005 13:56:09 -0700
+
+nvidia-settings (1.0+20050525-1) unstable; urgency=low
+
+  * upstream from May 25 2005
+  * add date to version name. (how about that for an idea, duh)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 20 Jun 2005 15:19:10 -0700
+
+nvidia-settings (1.0+3-1) unstable; urgency=low
+
+  * upstream from 03/22/05
+  * add libxrandr-dev and xlibmesa-gl-dev to build depends
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  2 Apr 2005 04:51:20 +0000
+
+nvidia-settings (1.0+2-3) unstable; urgency=low
+
+  * patch for rebuilding libXNVCtrl.a runtime. Thanks
+    to Tollef Fog Heen <tfheen@raw.no> (closes: 265640)
+  * change arch to only those supported by nvidia.
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 13 Nov 2004 12:41:47 -0800
+
+nvidia-settings (1.0+2-2) unstable; urgency=low
+
+  * Build against libs in unstable, not experimental. (closes: #280221) 
+
+ -- Randall Donald <rdonald@debian.org>  Mon,  8 Nov 2004 02:29:31 -0800
+
+nvidia-settings (1.0+2-1) unstable; urgency=low
+
+  * New upstream from Nov 5, 2004. 
+
+ -- Randall Donald <rdonald@debian.org>  Sun,  7 Nov 2004 00:02:46 -0800
+
+nvidia-settings (1.0+1-1) unstable; urgency=low
+
+  * New upstream (minor quit dialog change) but no new upstream
+    version number.
+
+ -- Randall Donald <rdonald@debian.org>  Thu,  5 Aug 2004 13:52:07 -0700
+
+nvidia-settings (1.0-3) unstable; urgency=low
+
+  * Fix Author(s) :p
+  * install debian menu. 
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  3 Jul 2004 19:09:17 -0700
+
+nvidia-settings (1.0-2) unstable; urgency=low
+
+  * Fix Build-Depends 
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 30 Jun 2004 22:39:18 -0700
+
+nvidia-settings (1.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 30 Jun 2004 16:45:52 -0700
+
